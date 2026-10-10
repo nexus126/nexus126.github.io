@@ -1,532 +1,400 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Federico Ranaldi</title>
+<meta name="description" content="Federico Ranaldi — PhD researcher in NLP and Neuro-Symbolic AI. University of Rome Tor Vergata · University of Edinburgh.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
-
-
-* {
-    box-sizing: border-box;
+:root {
+  --bg: #fbfbfa;
+  --surface: #ffffff;
+  --text: #16181d;
+  --muted: #5b616e;
+  --faint: #8a909c;
+  --line: #e6e7ea;
+  --accent: #2b59c3;
+  --accent-soft: #eef2fb;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+  --sans: "Inter", system-ui, -apple-system, sans-serif;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111317;
+    --surface: #171a1f;
+    --text: #e8e9ec;
+    --muted: #a3a8b3;
+    --faint: #737985;
+    --line: #262a31;
+    --accent: #7ea2f0;
+    --accent-soft: #1b2232;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
-
-    margin:0;
-    background:#fafafa;
-    color:#151515;
-
-    font-family:Inter, sans-serif;
-
-    line-height:1.6;
-
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
 }
 
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 .container {
-
-    max-width:1000px;
-    margin:auto;
-    padding:40px 30px;
-
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 36px 24px 60px;
 }
-
 
 /* NAV */
-
 nav {
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    margin-bottom:80px;
-
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 72px;
 }
-
 
 .logo {
-
-    font-family:"JetBrains Mono";
-    font-size:22px;
-    font-weight:600;
-
+  font-family: var(--mono);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
 }
+.logo span { color: var(--accent); }
 
-
-nav a {
-
-    text-decoration:none;
-    color:#555;
-    margin-left:25px;
-    font-size:14px;
-
+nav .menu a {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--muted);
+  margin-left: 24px;
 }
-
-
-nav a:hover {
-
-    color:black;
-
-}
-
+nav .menu a:hover { color: var(--text); text-decoration: none; }
 
 /* HEADER */
-
-
-.terminal {
-
-    font-family:"JetBrains Mono";
-    color:#777;
-    font-size:14px;
-
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 32px;
 }
 
+.photo {
+  flex: 0 0 150px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px dashed var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.photo:has(img) { border-style: solid; }
+.photo-placeholder {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--faint);
+}
 
 h1 {
-
-    font-size:58px;
-    letter-spacing:-3px;
-    margin:20px 0 5px;
-
+  font-size: 52px;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  font-weight: 700;
+  margin: 0 0 14px;
 }
 
-
-.subtitle {
-
-    font-size:22px;
-    color:#555;
-    font-weight:400;
-
+.roles {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
 }
-
-
-.intro {
-
-    margin-top:35px;
-    font-size:20px;
-    max-width:750px;
-
-}
-
-
+.roles li { margin: 2px 0; }
+.roles strong { color: var(--text); font-weight: 600; }
 
 .links {
-
-    margin-top:30px;
-
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
 }
-
-
 .links a {
-
-    font-family:"JetBrains Mono";
-    color:#111;
-    margin-right:25px;
-    text-decoration:none;
-
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: border-color .15s, color .15s;
 }
-
-
+.links a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+}
 
 /* SECTIONS */
-
-
-section {
-
-    margin-top:90px;
-
-}
-
+section { margin-top: 80px; }
 
 .section-title {
-
-    font-family:"JetBrains Mono";
-    font-size:17px;
-
-    border-bottom:1px solid #ddd;
-
-    padding-bottom:12px;
-
-    margin-bottom:35px;
-
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--faint);
+  letter-spacing: .5px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 10px;
+  margin: 0 0 28px;
 }
 
+section p { margin: 0 0 16px; }
 
-/* CARDS */
-
-
-.grid {
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:25px;
-
+/* RESEARCH */
+.interests {
+  list-style: none;
+  padding: 0;
+  margin: 28px 0 0;
+}
+.interests li {
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+}
+.interests li:last-child { border-bottom: 1px solid var(--line); }
+.interests h3 {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+.interests p {
+  color: var(--muted);
+  font-size: 15.5px;
+  margin: 0;
 }
 
-
-.card {
-
-    background:white;
-
-    border:1px solid #e8e8e8;
-
-    padding:25px;
-
+.vision {
+  margin: 32px 0 0;
+  padding: 20px 24px;
+  background: var(--accent-soft);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  font-size: 16.5px;
 }
-
-
-.card h3 {
-
-    margin-top:0;
-
-    font-size:20px;
-
-}
-
-
-
-.card p {
-
-    color:#555;
-
-}
-
-
-
-/* PROJECTS */
-
-
-.project {
-
-    border-left:3px solid #111;
-
-    padding-left:25px;
-
-    margin-bottom:30px;
-
-}
-
-
-.project h3 {
-
-    margin-bottom:5px;
-
-}
-
-
-
 
 /* PUBLICATIONS */
-
-#publications {
-  max-width: 850px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
-
-#publications .section-title {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 30px;
-  color: #1f2937;
-}
-
 .publication-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
 .pub {
-  padding: 22px 0;
-  border-bottom: 1px solid #e5e7eb;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
 }
-
-.pub:last-child {
-  border-bottom: none;
-}
+.pub:first-child { padding-top: 0; }
+.pub:last-child { border-bottom: none; }
 
 .pub-meta {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 9px;
+  margin-bottom: 6px;
 }
-
 .pub-year {
-  font-size: 0.8rem;
+  font-family: var(--mono);
+  font-size: 12px;
   font-weight: 600;
-  color: #374151;
-  background: #f3f4f6;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--line);
   border-radius: 5px;
-  padding: 4px 9px;
+  padding: 2px 8px;
 }
-
 .pub-venue {
-  font-size: 0.85rem;
+  font-size: 14px;
   font-weight: 500;
-  color: #6b7280;
+  color: var(--muted);
 }
-
 .pub-title {
-  font-size: 1.05rem;
+  font-size: 17px;
   font-weight: 600;
-  line-height: 1.55;
+  line-height: 1.5;
   margin: 0;
-  color: #1f2937;
+  color: var(--text);
 }
-
-.pub-title a {
-  color: inherit;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.pub-title a:hover {
-  color: #2563eb;
-}
-
+.pub-title a { color: inherit; }
+.pub-title a:hover { color: var(--accent); text-decoration: none; }
 .pub-title a:focus-visible {
-  outline: 2px solid #2563eb;
+  outline: 2px solid var(--accent);
   outline-offset: 4px;
   border-radius: 2px;
 }
 
-@media (max-width: 600px) {
-  #publications {
-    padding: 25px 15px;
-  }
-
-  .pub {
-    padding: 18px 0;
-  }
-}
-
-
-
 /* FOOTER */
-
-
 footer {
-
-    margin-top:100px;
-
-    font-family:"JetBrains Mono";
-
-    color:#777;
-
+  margin-top: 96px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--faint);
 }
-
-
 
 /* MOBILE */
-
-
-@media(max-width:800px){
-
-
-h1 {
-
-    font-size:40px;
-
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .container { padding: 24px 16px 48px; }
+  nav { margin-bottom: 48px; }
+  nav .menu a { margin-left: 14px; }
+  h1 { font-size: 38px; letter-spacing: -1.2px; }
+  section { margin-top: 60px; }
+  .hero { flex-direction: column; align-items: flex-start; gap: 22px; }
+  .photo { flex-basis: auto; width: 120px; height: 120px; }
 }
 
-
-.grid {
-
-    grid-template-columns:1fr;
-
+/* PROJECTS */
+.project {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
 }
-
-
-nav {
-
-    flex-direction:column;
-    align-items:flex-start;
-
+.project:first-child { padding-top: 0; }
+.project:last-child { border-bottom: none; }
+.project-role {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--accent);
+  margin: 0 0 6px;
 }
-
-
-nav div {
-
-    margin-top:20px;
-
+.project h3 {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0;
 }
-
-
+.project h3 a { color: var(--text); }
+.project h3 a:hover { color: var(--accent); text-decoration: none; }
+.project-venue {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 4px 0 0;
 }
-
-
 </style>
-
-
 </head>
 
-
-
 <body>
-
-
 <div class="container">
 
-
 <nav>
-
-<div class="logo">
-FR_
-</div>
-
-
-<div>
-
-<a href="#research">Research</a>
-
-<a href="#projects">Projects</a>
-
-<a href="#publications">Publications</a>
-
-<a href="#contact">Contact</a>
-
-</div>
-
+  <div class="logo">FR<span>_</span></div>
+  <div class="menu">
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#publications">Publications</a>
+    <a href="#projects">Projects</a>
+  </div>
 </nav>
 
-
-
 <header>
-
-
-<div class="terminal">
-
-> still in progress ...
-
-</div>
-
-
-<h1>
-Federico Ranaldi
-</h1>
-
-
-<p class="subtitle">
-
-PhD Researcher · Natural Language Processing · Large Language Models
-
-</p>
-
-
-<p class="intro">
-
-I investigate how Large Language Models acquire, represent and use
-knowledge, with a focus on interpretability, reasoning and structured
-information.
-
-</p>
-
-
-<div class="links">
-
-<a href="https://github.com/nexus126">GitHub</a>
-
-<a href="https://scholar.google.com/citations?user=4hU1e4AAAAAJ&hl=en">Google Scholar</a>
-
-<a href="https://www.linkedin.com/in/federico-ranaldi-84433614a/">LinkedIn</a>
-
-</div>
-
-
+  <div class="hero">
+    <!-- PHOTO: replace the placeholder <span> below with
+         <img src="photo.jpg" alt="Federico Ranaldi"> -->
+    <div class="photo">
+      <span class="photo-placeholder">photo</span>
+    </div>
+    <div>
+      <h1>Federico Ranaldi</h1>
+      <ul class="roles">
+        <li><strong>PhD Candidate in Data Science</strong> · University of Rome Tor Vergata</li>
+        <li><strong>Visiting PhD</strong> · School of Informatics, University of Edinburgh</li>
+      </ul>
+    </div>
+  </div>
+  <div class="links">
+    <a href="mailto:federico.ranaldi99@gmail.com">Email</a>
+    <a href="https://scholar.google.com/citations?user=4hU1e4AAAAAJ&amp;hl=en">Google Scholar</a>
+    <a href="https://github.com/nexus126">GitHub</a>
+    <a href="https://www.linkedin.com/in/federico-ranaldi-84433614a/">LinkedIn</a>
+  </div>
 </header>
 
-
-
-
-<section id="research">
-
-
-<div class="section-title">
-Research
-</div>
-
-
-
-<div class="grid">
-
-
-<div class="card">
-
-<h3>
-LLM Knowledge
-</h3>
-
-<p>
-
-Understanding what information is encoded inside language models
-and how it influences their behaviour.
-
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>
-Reasoning
-</h3>
-
-<p>
-
-Studying how LLMs solve reasoning tasks and how symbolic structures
-can improve their reliability.
-
-</p>
-
-</div>
-
-
-
-
-<div class="card">
-
-<h3>
-Trustworthy AI
-</h3>
-
-<p>
-
-Exploring interpretability, evaluation and limitations of
-large-scale neural models.
-
-</p>
-
-</div>
-
-
-</div>
-
-
+<section id="about">
+  <h2 class="section-title">About</h2>
+  <p>
+    I am a third- and final-year PhD candidate in Data Science at the
+    University of Rome Tor Vergata, supervised by Prof. Fabio Massimo Zanzotto,
+    and a member of <a href="https://humancentricart.github.io/">Human-Centric ART</a>.
+  </p>
+  <p>
+    I am currently a Visiting PhD student at the School of Informatics,
+    University of Edinburgh, under the supervision of Prof. Shay B. Cohen,
+    and a visiting member of <a href="https://bollin.inf.ed.ac.uk/">the Cohort</a>.
+  </p>
 </section>
 
+<section id="research">
+  <h2 class="section-title">Research</h2>
+  <p>
+    I work at the intersection of NLP and Neuro-Symbolic AI. I study how
+    Large Language Models acquire, represent and use knowledge, and how they
+    can move beyond memorisation towards generalisation and abstract,
+    structured reasoning.
+  </p>
+
+  <ul class="interests">
+    <li>
+      <h3>Grounding formal structures</h3>
+      <p>Code, logic, knowledge graphs and databases (relational or not): can LLMs manipulate symbols abstractly, without leaning on world knowledge and semantic plausibility?</p>
+    </li>
+    <li>
+      <h3>Reasoning across languages, modalities and formal domains</h3>
+      <p>Multilingual, multimodal and agentic reasoning through new training and reinforcement-learning methods, drawing on cognitive science and philosophy (Theory of Mind, debate, reflection).</p>
+    </li>
+    <li>
+      <h3>Structured code generation across paradigms</h3>
+      <p>Transferring code-generation abilities across programming languages, whether or not they share paradigmatic constructs.</p>
+    </li>
+    <li>
+      <h3>Data contamination</h3>
+      <p>Detection and mitigation, especially for tasks that require complex reasoning rather than surface-level pattern matching.</p>
+    </li>
+  </ul>
+
+  <p class="vision">
+    I believe the future of AI lies in bridging the learning capabilities of
+    LLMs with the principles of Symbolic AI, building systems that are
+    reliable, cost-effective, compositional and interpretable by design.
+  </p>
+</section>
 
 <section id="publications">
-
-  <h2 class="section-title">
-    Selected Publications
-  </h2>
-
+  <h2 class="section-title">Selected Publications</h2>
   <ul class="publication-list">
 
     <li class="pub">
@@ -579,44 +447,37 @@ large-scale neural models.
     </li>
 
   </ul>
-
 </section>
 
+<section id="projects">
+  <h2 class="section-title">Projects</h2>
 
+  <div class="project">
+    <p class="project-role">Organiser</p>
+    <h3>
+      <a href="https://sites.google.com/view/semeval-2026-task-11">
+        SemEval-2026 Task 11: Disentangling Content and Formal Reasoning
+        in Large Language Models
+      </a>
+    </h3>
+  </div>
 
-
-
-<section id="contact">
-
-
-<div class="section-title">
-
-Contact
-
-</div>
-
-
-<p>
-
-📧 federico.ranaldi99@gmail.com
-
-</p>
-
-
+  <div class="project">
+    <p class="project-role">Organiser</p>
+    <h3>
+      <a href="https://sites.google.com/view/workshoporacle/">
+        1st Workshop on Open Reasoning Across Cultures &amp; Languages (ORACLE)
+      </a>
+    </h3>
+    <p class="project-venue">EMNLP 2026 · Budapest</p>
+  </div>
 </section>
-
-
 
 <footer>
-
-system.ready()
-
+  <span>© 2026 Federico Ranaldi</span>
+  <span>system.ready()</span>
 </footer>
 
-
 </div>
-
-
 </body>
-
 </html>
