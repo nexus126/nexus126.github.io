@@ -229,18 +229,89 @@ section {
 
 /* PUBLICATIONS */
 
-
-.pub {
-
-    margin-bottom:25px;
-
+#publications {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
+#publications .section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #1f2937;
+}
 
-.pub b {
+.publication-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-    font-weight:600;
+.pub {
+  padding: 22px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
 
+.pub:last-child {
+  border-bottom: none;
+}
+
+.pub-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 9px;
+}
+
+.pub-year {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #374151;
+  background: #f3f4f6;
+  border-radius: 5px;
+  padding: 4px 9px;
+}
+
+.pub-venue {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.pub-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.55;
+  margin: 0;
+  color: #1f2937;
+}
+
+.pub-title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.pub-title a:hover {
+  color: #2563eb;
+}
+
+.pub-title a:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+@media (max-width: 600px) {
+  #publications {
+    padding: 25px 15px;
+  }
+
+  .pub {
+    padding: 18px 0;
+  }
 }
 
 
@@ -452,66 +523,62 @@ large-scale neural models.
 
 <section id="publications">
 
+  <h2 class="section-title">
+    Selected Publications
+  </h2>
 
-<div class="section-title">
+  <ul class="publication-list">
 
-Selected Publications
+    <li class="pub">
+      <div class="pub-meta">
+        <span class="pub-year">2026</span>
+        <span class="pub-venue">EMNLP · Main Conference</span>
+      </div>
+      <h3 class="pub-title">
+        Surfacing Program Structure with Auxiliary Signals
+        for Low-Resource Code Translation
+      </h3>
+    </li>
 
-</div>
+    <li class="pub">
+      <div class="pub-meta">
+        <span class="pub-year">2026</span>
+        <span class="pub-venue">ACL · Main Conference</span>
+      </div>
+      <h3 class="pub-title">
+        <a href="https://aclanthology.org/2026.acl-long.1897/">
+          Thinking in Schemas: Robust Syllogistic Reasoning in LLMs
+        </a>
+      </h3>
+    </li>
 
+    <li class="pub">
+      <div class="pub-meta">
+        <span class="pub-year">2024</span>
+        <span class="pub-venue">ACL · Findings</span>
+      </div>
+      <h3 class="pub-title">
+        <a href="https://aclanthology.org/2024.findings-acl.827/">
+          Investigating the Impact of Data Contamination
+          of Large Language Models in Text-to-SQL Translation
+        </a>
+      </h3>
+    </li>
 
+    <li class="pub">
+      <div class="pub-meta">
+        <span class="pub-year">2023</span>
+        <span class="pub-venue">EMNLP · Findings</span>
+      </div>
+      <h3 class="pub-title">
+        <a href="https://aclanthology.org/2023.findings-emnlp.963/">
+          Exploring Linguistic Properties of Monolingual BERTs
+          with Typological Classification among Languages
+        </a>
+      </h3>
+    </li>
 
-<div class="pub">
-
-<b>
-<a href="#NOGO"> Surfacing program structure with auxiliary signals for Low-Resource Code Translation</a>
-</b>
-
-<br>
-
-EMNLP 2026 Main
-
-</div>
-
-
-<b>
-<a href="https://aclanthology.org/2026.acl-long.1897/"> Thinking in Schemas: Robust Syllogistic Reasoning in LLMs</a>
-</b>
-
-<br>
-
-ACL 2026 Main
-
-</div>
-
-
-
-<div class="pub">
-
-<b>
-<a href="https://aclanthology.org/2024.findings-acl.827/"> Investigating the Impact of Data Contamination of Large Language Models in Text-to-SQL Translation</a>
-</b>
-
-<br>
-
-ACL 2024 Findings
-
-</div>
-
-
-<div class="pub">
-
-<b>
-<a href="https://aclanthology.org/2023.findings-emnlp.963/"> Exploring Linguistic Properties of Monolingual BERTs with Typological Classification among Languages</a>
-</b>
-
-<br>
-
-EMNLP 2023 Findings
-
-</div>
-
-
+  </ul>
 
 </section>
 
