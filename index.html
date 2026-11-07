@@ -211,14 +211,17 @@ section p { margin: 0 0 16px; }
   margin: 0;
 }
 .pub,
-.project {
+.project,
+.teach {
   padding: 16px 0;
   border-bottom: 1px solid var(--line);
 }
 .pub:first-child,
-.project:first-of-type { padding-top: 0; }
+.project:first-of-type,
+.teach:first-of-type { padding-top: 0; }
 .pub:last-child,
-.project:last-child { border-bottom: none; }
+.project:last-child,
+.teach:last-child { border-bottom: none; }
 
 .pub-meta {
   display: flex;
@@ -236,7 +239,8 @@ section p { margin: 0 0 16px; }
 .pub-venue { color: var(--muted); }
 
 .pub-title,
-.project h3 {
+.project h3,
+.teach h3 {
   font-size: 18px;
   font-weight: 600;
   line-height: 1.45;
@@ -248,7 +252,8 @@ section p { margin: 0 0 16px; }
 .pub-title a:hover,
 .project h3 a:hover { color: var(--accent); text-decoration: none; }
 
-.project-role {
+.project-role,
+.teach-role {
   font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
@@ -256,10 +261,17 @@ section p { margin: 0 0 16px; }
   color: var(--accent);
   margin: 0 0 4px;
 }
-.project-venue {
+.project-venue,
+.teach-place {
   font-size: 15px;
   color: var(--muted);
   margin: 4px 0 0;
+}
+.teach-it { font-weight: 400; color: var(--muted); }
+.teach-note {
+  font-size: 15px;
+  color: var(--muted);
+  margin: 6px 0 0;
 }
 
 /* FOOTER */
@@ -276,6 +288,10 @@ footer {
 }
 
 /* MOBILE */
+@media (max-width: 360px) {
+  .menu a { font-size: 14px !important; }
+  .menu { gap: 8px !important; }
+}
 @media (max-width: 640px) {
   body { font-size: 17px; }
   html { scroll-padding-top: 64px; }
@@ -288,7 +304,14 @@ footer {
     justify-content: space-between;
     gap: 12px;
   }
+  .menu {
+    gap: 12px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .menu::-webkit-scrollbar { display: none; }
   .menu a { font-size: 15px; }
+  .menu a[href="#about"] { display: none; }
 
   .hero { flex-direction: column; align-items: flex-start; gap: 18px; }
   .photo { flex-basis: auto; width: 96px; height: 96px; }
@@ -299,7 +322,7 @@ footer {
   .links a { font-size: 14px; padding: 6px 12px; }
 
   section { margin-top: 48px; }
-  .interests h3, .pub-title, .project h3 { font-size: 17px; }
+  .interests h3, .pub-title, .project h3, .teach h3 { font-size: 17px; }
   .interests p { font-size: 16px; }
   .vision { padding: 16px 18px; }
   footer { margin-top: 60px; }
@@ -316,7 +339,8 @@ footer {
     <a href="#about">About</a>
     <a href="#research">Research</a>
     <a href="#publications">Publications</a>
-    <a href="#projects">Projects</a>
+    <a href="#community">Community</a>
+    <a href="#teaching">Teaching</a>
   </div>
 </nav>
 
@@ -368,7 +392,7 @@ footer {
   <ul class="interests">
     <li>
       <h3>Grounding formal structures</h3>
-      <p>Code, logic, knowledge graphs and databases (relational or not): analyzing if LLMs can manipulate symbols abstractly, without relying on world knowledge that sometimes can lead them to errors (Aristhotelic Syllogisms are a typical testbed).</p>
+      <p>Code, logic, knowledge graphs and databases (relational or not): analyzing if LLMs can manipulate symbols abstractly, without relying on world knowledge that sometimes can lead them to errors (Aristhotelic Syllosisms are a typical testbed).</p>
     </li>
     <li>
       <h3>Reasoning across languages, modalities and formal domains</h3>
@@ -401,10 +425,8 @@ footer {
         <span class="pub-venue">EMNLP · Main Conference</span>
       </div>
       <h3 class="pub-title">
-        <a href="https://aclanthology.org/2026.emnlp-main.2234/">
         Surfacing Program Structure with Auxiliary Signals
         for Low-Resource Code Translation
-        </a>
       </h3>
     </li>
 
@@ -434,7 +456,7 @@ footer {
 
     <li class="pub">
       <div class="pub-meta">
-        <span class="pub-year">2025</span>
+        <span class="pub-year">2024</span>
         <span class="pub-venue">Clic-It 2024 Italian Conference on Computational Linguistics</span>
       </div>
       <h3 class="pub-title">
@@ -473,8 +495,8 @@ footer {
   </ul>
 </section>
 
-<section id="projects">
-  <h2 class="section-title">Projects</h2>
+<section id="community">
+  <h2 class="section-title">Community Initiatives</h2>
 
   <div class="project">
     <p class="project-role">Organiser</p>
@@ -484,9 +506,6 @@ footer {
         in Large Language Models
       </a>
     </h3>
-      <a href="https://aclanthology.org/2026.semeval-1.450/">
-        Proceedings
-      </a>
     <p class="project-venue">ACL 2026 · San Diego</p>
   </div>
 
@@ -497,20 +516,30 @@ footer {
         1st Workshop on Open Reasoning Across Cultures &amp; Languages (ORACLE)
       </a>
     </h3>
-      <a href="https://aclanthology.org/2026.oracle-main.0/">
-        Proceedings
-      </a>
     <p class="project-venue">EMNLP 2026 · Budapest</p>
   </div>
+</section>
 
-<div class="project">
-    <p class="project-role">Organiser</p>
-    <h3>
-      <a href="https://sites.google.com/view/workshoporacle/">
-        2nd Workshop on Open Reasoning Across Cultures &amp; Languages (ORACLE)
-      </a>
-    </h3>
-    <p class="project-venue">EACL 2027 · Athens</p>
+<section id="teaching">
+  <h2 class="section-title">Teaching</h2>
+
+  <div class="teach">
+    <p class="teach-role">Teaching Assistant · 2025, 2026, 2027</p>
+    <h3>Fundamentals of Computer Science <span class="teach-it">(Fondamenti di Informatica)</span></h3>
+    <p class="teach-place">BSc in Management Engineering · University of Rome Tor Vergata</p>
+  </div>
+
+  <div class="teach">
+    <p class="teach-role">Teaching Assistant</p>
+    <h3>Fundamentals of Programming <span class="teach-it">(Fondamenti di Programmazione)</span></h3>
+    <p class="teach-place">MSc in Digital Humanities · University of Rome Tor Vergata</p>
+  </div>
+
+  <div class="teach">
+    <p class="teach-role">Tutor · 2024 , 2025</p>
+    <h3>Formalisation Methods and Study Skills for Scientific Subjects</h3>
+    <p class="teach-place">BSc in Computer Science · University of Rome Tor Vergata</p>
+    <p class="teach-note">Part of a national programme supporting students in STEM degrees and reducing in drop-out.</p>
   </div>
 </section>
 
